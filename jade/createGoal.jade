@@ -1,0 +1,42 @@
+extends ./layout.jade
+block content
+  div.modal.show#modalDiv
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type='button' class="close" data-dismiss="modal")
+            span(aria-hidden="true") &times;
+            span.sr-only
+          h4.modal-title 我的目标！
+        div.modal-body(style='height:200px;')
+          p#step1
+            |我保证，要在
+            input(type='text' id='period' class='form-control' placeholder='多久' style='width:70px;display:inline-block;margin:10px;')
+            |个月以内减掉
+            input(type='text' id='weight' class='form-control' placeholder='多少' style='width:70px;display:inline-block;margin:10px;')
+            |Kg！
+          p#step2
+            |第二部
+        div.modal-footer
+          button#btnPrev(type='button' class="btn btn-default" disabled data-dismiss="modal") 上一步
+          button#btnNext(type='button' class="btn btn-default" data-dismiss="modal") 下一步
+          button#btnCancel(type='button' class="btn btn-default" data-dismiss="modal") 取&nbsp;消
+          button#btnSave(type='button' class="btn btn-default" data-dismiss="modal") 确&nbsp;定
+    script(type='text/javascript').
+      $(function(){
+        $('#step2,#btnSave').hide();
+        
+        $('#btnNext').bind('click',function(){
+          $('#step1,#btnCancel').hide();
+          $('#step2,#btnSave').show();
+          $('#btnPrev').removeProp('disabled');
+          $('#btnNext').prop('disabled','disabled');
+        });
+      
+        $('#btnPrev').bind('click',function(){
+          $('#step1,#btnCancel').show();
+          $('#step2,#btnSave').hide();
+          $('#btnPrev').prop('disabled','disabled');
+          $('#btnNext').removeProp('disabled');
+       });
+      });

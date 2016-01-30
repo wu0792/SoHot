@@ -1,0 +1,25 @@
+doctype
+html
+  head
+    meta(chartset='utf-8')
+    title #{title}
+    include ./ref.jade
+  body
+    block header
+      header(role="banner")#top.navbar.navbar-static-top.bs-docs-nav
+        div.container
+          div.navbar-header
+            button(type="button" data-toggle="collapse" 
+                data-target="#bs-navbar" aria-controls="bs-navbar"
+                aria-expanded="false").navbar-toggle.collapsed.glyphicon.glyphicon-menu-hamburger
+          nav#bs-navbar.navbar.navbar-default
+            a(href='../').navbar-brand              
+              img#logo(src='../image/logo.jpg')          
+            ul.nav.navbar-nav
+              li.active
+                a(href='#') 我的目标
+              li
+                a(href='#') 做的咋样
+              li
+                a(href='#') 正能量
+    block content

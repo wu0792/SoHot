@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta chartset="utf-8">
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/common.css" rel="stylesheet">
+    <script src="../bootstrap/js/jquery-1.12.0.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger"></button>
+        </div>
+        <nav id="bs-navbar" class="navbar navbar-default"><a href="../" class="navbar-brand">             <img id="logo" src="../image/logo.jpg"></a>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">我的目标</a></li>
+            <li><a href="#">做的咋样</a></li>
+            <li><a href="#">正能量</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="modalDiv" class="modal show">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>
+            <h4 class="modal-title">我的目标！</h4>
+          </div>
+          <div style="height:200px;" class="modal-body">
+            <p id="step1">我保证，要在
+              <input type="text" id="period" placeholder="多久" style="width:70px;display:inline-block;margin:10px;" class="form-control">个月以内减掉
+              <input type="text" id="weight" placeholder="多少" style="width:70px;display:inline-block;margin:10px;" class="form-control">Kg！
+            </p>
+            <p id="step2">第二部</p>
+          </div>
+          <div class="modal-footer">
+            <button id="btnPrev" type="button" disabled data-dismiss="modal" class="btn btn-default">上一步</button>
+            <button id="btnNext" type="button" data-dismiss="modal" class="btn btn-default">下一步</button>
+            <button id="btnCancel" type="button" data-dismiss="modal" class="btn btn-default">取&nbsp;消</button>
+            <button id="btnSave" type="button" data-dismiss="modal" class="btn btn-default">确&nbsp;定</button>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(function(){
+          $('#step2,#btnSave').hide();
+          
+          $('#btnNext').bind('click',function(){
+            $('#step1,#btnCancel').hide();
+            $('#step2,#btnSave').show();
+            $('#btnPrev').removeProp('disabled');
+            $('#btnNext').prop('disabled','disabled');
+          });
+        
+          $('#btnPrev').bind('click',function(){
+            $('#step1,#btnCancel').show();
+            $('#step2,#btnSave').hide();
+            $('#btnPrev').prop('disabled','disabled');
+            $('#btnNext').removeProp('disabled');
+         });
+        });
+      </script>
+    </div>
+  </body>
+</html>
